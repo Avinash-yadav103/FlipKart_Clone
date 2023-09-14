@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes slider {
+    from{width: 100vw;}
+    to{width: 0vw;} 
+}
+
+.boxw {
+    width: 100vw;
+    height: 10vh;
+    background-color: red;
+    animation-name: slider;
+    animation-duration: 1s;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    /* animation: 3s ease-in 1s infinite reverse both running slidein; */
+}
+
