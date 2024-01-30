@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sliding Animation</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s ease;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .slide-1 {
+      transform: translateX(0);
+    }
+    
+    .slide-2 {
+      transform: translateX(-100%);
+    }
+    
+    .slide-3 {
+      transform: translateX(-200%);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="slide slide-1">
+      <img src="hut.webp" alt="Image 1">
+    </div>
+    <div class="slide slide-2">
+      <img src="hut.webp" alt="Image 2">
+    </div>
+    <div class="slide slide-3">
+      <img src="image/anime3.png" alt="Image 3">
+    </div>
+  </div>
+
+  <script>
+    function startAnimation() {
+      setInterval(() => {
+        const container = document.querySelector('.container');
+        const activeSlide = container.querySelector('.slide-1');
+        const nextSlide = activeSlide.nextElementSibling || container.firstElementChild;
+        activeSlide.classList.remove('slide-1');
+        nextSlide.classList.add('slide-1');
+      }, 2000);
+    }
+
+    startAnimation();
+  </script>
+</body>
+</html>
