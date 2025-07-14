@@ -1,21 +1,245 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-@keyframes slider {
-    from{width: 100vw;}
-    to{width: 0vw;} 
+/* Hero Banner Slider Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.boxw {
-    width: 100vw;
-    height: 10vh;
-    background-color: red;
-    animation-name: slider;
-    animation-duration: 1s;
-    animation-play-state: running;
-    animation-iteration-count: infinite;
-    /* animation: 3s ease-in 1s infinite reverse both running slidein; */
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+/* Product Card Hover Animation */
+@keyframes productHover {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.02);
+    }
+    100% {
+        transform: translateY(-4px) scale(1.01);
+    }
+}
+
+/* Loading Animation */
+@keyframes loading {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Pulse Animation for Buttons */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 116, 240, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(40, 116, 240, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 116, 240, 0);
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Shimmer Effect for Loading */
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -30px, 0);
+    }
+    70% {
+        transform: translate3d(0, -15px, 0);
+    }
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+/* Category Icon Hover */
+.box {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.box:hover {
+    animation: bounce 0.6s ease-in-out;
+}
+
+/* Product Card Animation */
+.box2 {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.box2:hover {
+    animation: productHover 0.5s ease-in-out forwards;
+}
+
+/* Loading Bar */
+.loading-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #2874f0, #ffe500);
+    animation: loading 2s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+.shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Button Pulse */
+.login:hover, .viewall:hover {
+    animation: pulse 1.5s infinite;
+}
+
+/* Page Load Animation */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Cart Icon Animation */
+@keyframes cartBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+.carticon:hover {
+    animation: cartBounce 0.6s ease-in-out;
+}
+
+/* Search Icon Rotation */
+@keyframes searchRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.searchicon:hover i {
+    animation: searchRotate 0.5s ease-in-out;
+}
+
+/* Hero Banner Auto Slider */
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile Responsive Animations */
+@media (max-width: 768px) {
+    .box:hover {
+        animation: none;
+        transform: scale(1.05);
+    }
+    
+    .box2:hover {
+        animation: none;
+        transform: translateY(-2px);
+    }
 }
 
